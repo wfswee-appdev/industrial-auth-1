@@ -4,16 +4,22 @@
   </div>
 </div>
 
+<% if @user.followers.include?(current_user) || @user == current_user %>
 <div class="row mb-2">
   <div class="col-md-6 offset-md-3">
     <%= render "users/profile_nav", user: @user %>
   </div>
 </div>
 
-<% @user.own_photos.each do |photo| %>
-  <div class="row mb-4">
-    <div class="col-md-6 offset-md-3">
-      <%= render "photos/photo", photo: photo %>
-    </div>
-  </div>
+    <% @user.own_photos.each do |photo| %>
+      <div class="row mb-4">
+        <div class="col-md-6 offset-md-3">
+          <%= render "photos/photo", photo: photo %>
+        </div>
+      </div>
+      <% end %>
+<% else %>
+    <%= "You cannot view this user's posts and liked photos because you are not a follower of this user." %>
 <% end %>
+
+
