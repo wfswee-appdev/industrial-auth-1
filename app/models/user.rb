@@ -27,10 +27,11 @@
 #  index_users_on_username              (username) UNIQUE
 #
 class User < ApplicationRecord
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+   devise :database_authenticatable, :registerable,
+          :recoverable, :rememberable, :validatable
 
   has_many :comments, foreign_key: :author_id, dependent: :destroy
 
@@ -48,6 +49,7 @@ class User < ApplicationRecord
 
   has_many :own_photos, foreign_key: :owner_id, class_name: "Photo", dependent: :destroy
 
+  # https://3000-bronze-swift-a7k67nxm.ws-us03.gitpod.io/laura/liked is showing liked photos...need a before_action or conditional to stop this behavior
   has_many :liked_photos, through: :likes, source: :photo
 
   has_many :leaders, through: :accepted_sent_follow_requests, source: :recipient

@@ -4,9 +4,10 @@
   </div>
 </div>
 
+
 <div class="row mb-2">
   <div class="col-md-6 offset-md-3">
-    <% if @user.followers.include?(current_user) || @user == current_user %>
+    <% if @user.private == false || @user.followers.include?(current_user) || @user == current_user %>
     
     <%= render "users/profile_nav", user: @user %>
   </div>

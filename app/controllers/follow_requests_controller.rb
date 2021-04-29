@@ -1,5 +1,7 @@
 class FollowRequestsController < ApplicationController
   before_action :set_follow_request, only: %i[ show edit update destroy ]
+  before_action :ensure_current_user_is_owner, only: [ :edit, :destroy ]
+  # before_action :user_can_only_see_their_own_pending_follow_requests, only: :show
 
   # GET /follow_requests or /follow_requests.json
   def index
@@ -7,8 +9,8 @@ class FollowRequestsController < ApplicationController
   end
 
   # GET /follow_requests/1 or /follow_requests/1.json
-  def show
-  end
+  # def show
+  # end
 
   # GET /follow_requests/new
   def new
@@ -67,4 +69,16 @@ class FollowRequestsController < ApplicationController
     def follow_request_params
       params.require(:follow_request).permit(:recipient_id, :sender_id, :status)
     end
+
+    def ensure_current_user_is_owner
+      if current_user.id != @follow_request.sender_id
+        redirect_back fallback_location: root_url, notice: "You are not authorized for this."
+      end
+    end
+
+    # def user_can_only_see_their_own_pending_follow_requests
+    #   if @follow_request.status == "pending" && (current_user.id != @follow_request.recipient_id && current_user.id != @follow_request.sender_id)
+    #     redirect_back fallback_location: root_url, notice: "You are not authorized for this."
+    #   end
+    # end
 end

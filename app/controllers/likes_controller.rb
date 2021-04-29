@@ -1,14 +1,15 @@
 class LikesController < ApplicationController
   before_action :set_like, only: %i[ show edit update destroy ]
+  before_action :ensure_current_user_is_owner, only: [ :edit, :update, :destroy ]
 
   # GET /likes or /likes.json
-  def index
-    @likes = Like.all
-  end
+  # def index
+  #   @likes = Like.all
+  # end
 
   # GET /likes/1 or /likes/1.json
-  def show
-  end
+  # def show
+  # end
 
   # GET /likes/new
   def new
@@ -16,8 +17,8 @@ class LikesController < ApplicationController
   end
 
   # GET /likes/1/edit
-  def edit
-  end
+  # def edit
+  # end
 
   # POST /likes or /likes.json
   def create
@@ -35,17 +36,17 @@ class LikesController < ApplicationController
   end
 
   # PATCH/PUT /likes/1 or /likes/1.json
-  def update
-    respond_to do |format|
-      if @like.update(like_params)
-        format.html { redirect_to @like, notice: "Like was successfully updated." }
-        format.json { render :show, status: :ok, location: @like }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @like.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @like.update(like_params)
+  #       format.html { redirect_to @like, notice: "Like was successfully updated." }
+  #       format.json { render :show, status: :ok, location: @like }
+  #     else
+  #       format.html { render :edit, status: :unprocessable_entity }
+  #       format.json { render json: @like.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /likes/1 or /likes/1.json
   def destroy
@@ -65,5 +66,11 @@ class LikesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def like_params
       params.require(:like).permit(:fan_id, :photo_id)
+    end
+
+    def ensure_current_user_is_owner
+      if current_user != @like.fan
+        redirect_back fallback_location: root_url, notice: "You are not authorized for this."
+      end
     end
 end
