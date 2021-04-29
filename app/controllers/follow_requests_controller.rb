@@ -4,9 +4,9 @@ class FollowRequestsController < ApplicationController
   # before_action :user_can_only_see_their_own_pending_follow_requests, only: :show
 
   # GET /follow_requests or /follow_requests.json
-  # def index
-  #   @follow_requests = FollowRequest.all
-  # end
+  def index
+    @follow_requests = FollowRequest.all
+  end
 
   # GET /follow_requests/1 or /follow_requests/1.json
   # def show

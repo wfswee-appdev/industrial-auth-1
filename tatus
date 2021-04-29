@@ -1,0 +1,65 @@
+[33mcommit c80f1bdb2b4686e3742f3d7937086a502c027d7d[m[33m ([m[1;36mHEAD -> [m[1;32mws-additional-authorizations[m[33m, [m[1;31morigin/ws-additional-authorizations[m[33m)[m
+Author: wfswee <wfswee@chicagobooth.edu>
+Date:   Thu Apr 29 07:02:32 2021 +0000
+
+    need to stop /user/liked from betraying private users while keeping visible in discover
+
+[33mcommit 930d15812ab25ad0b1b74a1a773687db2aa4d138[m
+Author: wfswee <wfswee@chicagobooth.edu>
+Date:   Thu Apr 29 06:51:08 2021 +0000
+
+    stopped modal from printing pending request in background
+
+[33mcommit 3696d6c47fb9fc1ad5d883f3f1685e0efc76ca52[m
+Author: wfswee <wfswee@chicagobooth.edu>
+Date:   Thu Apr 29 06:09:58 2021 +0000
+
+    remove unused actions
+
+[33mcommit 53eeb7a786d52346dc1bd3b72a4c235720e026aa[m
+Author: wfswee <wfswee@chicagobooth.edu>
+Date:   Thu Apr 29 05:55:46 2021 +0000
+
+    before_action to stop follow_requests#show if pending and not recipient or sender
+
+[33mcommit e7df2aff34d840545e24628bf5d67650520419f3[m
+Author: wfswee <wfswee@chicagobooth.edu>
+Date:   Thu Apr 29 04:46:15 2021 +0000
+
+    protect folows and likes
+
+[33mcommit eda9283875b69f497cdfefcb3c0ba64d4924dff4[m
+Author: wfswee <wfswee@chicagobooth.edu>
+Date:   Thu Apr 29 03:58:09 2021 +0000
+
+    public private
+
+[33mcommit 90af6777d1f173412790c80bffced6b07765eee7[m[33m ([m[1;31morigin/ws-follow-authorizations[m[33m, [m[1;32mws-follow-authorizations[m[33m)[m
+Author: wfswee <wfswee@chicagobooth.edu>
+Date:   Thu Apr 29 03:44:53 2021 +0000
+
+    pending link done
+
+[33mcommit bea6fdb850dd73001004e4654f76dd15780b7346[m
+Author: wfswee <wfswee@chicagobooth.edu>
+Date:   Fri Apr 23 23:49:46 2021 +0000
+
+    if not user's accepted follower, can't see their posts
+
+[33mcommit e4c54695519763c2645f5fc2d4467cbb39a8c2a0[m
+Author: wfswee <wfswee@chicagobooth.edu>
+Date:   Fri Apr 23 01:41:32 2021 +0000
+
+    starting on follow authorizations
+
+[33mcommit 09725dcd03efb8a0553846ab863003417726f539[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: wfswee <wfswee@chicagobooth.edu>
+Date:   Fri Apr 23 01:39:50 2021 +0000
+
+    added authorization to destroy edit photos comments
+
+[33mcommit 0a42fb771aea913a50bd49d0b202a237f0676c3d[m
+Author: Raghu Betina <Raghu.Betina@chicagobooth.edu>
+Date:   Fri Apr 16 12:36:23 2021 -0500
+
+    Starting point for Authorization
