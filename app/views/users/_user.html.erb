@@ -77,12 +77,15 @@
 
     <div class="row mb-3">
       <div class="col">
+
+
         <% follow_request = current_user.pending_received_follow_requests.find_by(sender: @user) %>
 
         <% if follow_request %>
           <p class="lead text-center">
             <%= @user.username %> has sent you a follow request.
           </p>
+
 
           <% follow_request.status = "accepted" %>
 
@@ -150,6 +153,7 @@
     target: "#{dom_id(user)}_following"
 %>
 
+<% if @user == current_user %>
 <%=
   render "users/connected_users_modal.html.erb",
     user: user,
@@ -157,3 +161,5 @@
     description: "pending",
     target: "#{dom_id(user)}_pending"
 %>
+<%else%>
+<%end%>
