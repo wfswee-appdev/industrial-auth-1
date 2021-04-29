@@ -3,9 +3,9 @@ class PhotosController < ApplicationController
   before_action :ensure_current_user_is_owner, only: [ :edit, :update, :destroy ]
 
   # GET /photos or /photos.json
-  def index
-    @photos = Photo.all
-  end
+  # def index
+  #   @photos = Photo.all
+  # end
 
   # GET /photos/1 or /photos/1.json
   def show
